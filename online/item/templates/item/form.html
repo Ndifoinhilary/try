@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content  %}
+
+<div class="dropdown-menu">
+    <form  method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+      
+      
+
+        <div class="form-group">
+            <label for="exampleDropdownFormEmail2">Category</label><br>
+           {{form.category}}
+          </div>
+          <div class="form-group">
+            <label for="exampleDropdownFormEmail2">Name</label><br>
+            {{form.name}}
+          </div>
+
+
+          <div class="form-group">
+            <label for="exampleDropdownFormEmail2">Description</label><br>
+            {{form.description}}
+          </div>
+
+
+          <div class="form-group">
+            <label for="exampleDropdownFormEmail2">Price</label><br>
+            {{form.price}}
+          </div>
+
+
+          <div class="form-group">
+            <label for="exampleDropdownFormEmail2">Image</label><br>
+            {{form.image}}
+          </div>
+
+       
+                        
+    <button type="submit" >Submit</button>
+    </form>
+   
+  </div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Seach{% endblock %}
+
+{% block content  %}
+
+
+<div>
+
+     <div>
+        <form action="get" action="{% url 'item:items' %}">
+
+            <input type="text" name="query" id="" value="query">
+
+            <button>Search</button>
+              
+
+        </form>
+        <hr>
+        <p>categories</p>
+    
+        <ul>
+            {% for categor in category %}
+            <li class="{% if categor.id == categor_id %} {% endif %}">
+                <a href="{% url 'item:items' %}?query={{query}}&categor={{categor.id}} ">{{categor.name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+      
+     </div>
+     
+
+    <div class="grid grid-colo-3 gap-3">
+        {% for item in items %}
+        <div >
+ 
+         <a href="{% url 'item:detail' item.id  %}">
+             <div>
+                 <img src="{{ item.image.url  }}" class="rounded-t-xl ">
+             </div>
+ 
+             <div class="p-6 bg-white rounded-b-xl" >
+ 
+                 <h2 class="text-2xl" >{{item.name}}</h2>
+                  <p > Price : {{item.price}} CFA</p>
+             </div>
+         </a>
+ 
+        </div>
+    
+      {% endfor %}
+     
+     </div>
+</div>
+
+
+{% endblock %}
